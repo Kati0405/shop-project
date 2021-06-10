@@ -97,6 +97,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.srch input:focus{
+    outline: none;
+}
+
 .btn-srch {
     width: 30px;
     height: 30px;

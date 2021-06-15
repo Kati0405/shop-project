@@ -38,6 +38,12 @@ body {
     width: 75%;
 }
 
+/* .col-md-4 {
+    width: 25%;
+    height: 650px;
+    border: solid white 1px;
+} */
+
 [class*="col-"] {
     float: left;
     padding-right: 15px;
@@ -205,3 +211,50 @@ body {
 .fa-chevron-down {
     font-size: 12px;
 }
+
+.col-md-12 {
+    height: 400px;
+    width: 100%;
+    /* border-bottom: solid white 1px; */
+    background: transparent;
+}
+
+.main {
+    background-color: rgba(255, 255, 255, 0.12,5);
+}
+
+.filter {
+    background-color: rgba(255, 255, 255, 0.25);
+    width: 100%;
+    height: 845px;
+    
+}
+
+.navigation a{
+    float: left;
+    display: block;
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 14px;
+    text-decoration: none;
+    padding-right: 5px;
+     
+}
+
+.navigation a:hover{
+    text-decoration: underline;
+}
+
+.navigation {
+    padding-left: 15px;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    padding-top: 15px;
+}
+
+
+
+

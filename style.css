@@ -307,19 +307,18 @@ h2 {
     background-repeat: no-repeat;
     background-position: center;
     position: absolute;
+    right: 10px;
+    top: 10px;
 
 }
 
 .zoom {
     background-image: url(images/zoom-blue.png);
-    margin-left: 230px;
-    margin-top: -127px;
 }
 
 .like {
     background-image: url(images/like-blue.png);
-    margin-left: 230px;
-    margin-top: -88px;
+    top: 50px;
 }
 
 .zoom:hover {

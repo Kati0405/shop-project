@@ -241,12 +241,14 @@ body {
     font-size: 14px;
     text-decoration: none;
     padding-right: 5px;
+    padding-top: 25px;
 
 }
 
 .breadcrumps a:hover {
     text-decoration: underline;
 }
+
 
 h1 {
     font-size: 48px;
@@ -348,9 +350,10 @@ h2 {
 
 }
 
-.product-features span {
+.product-features span, .filter span {
     text-transform: uppercase;
     font-weight: bold;
+    
 }
 
 .product-features div {
@@ -395,14 +398,14 @@ sup {
     background-position-y: center;
 }
 
-.load-more a{
+.load-more a {
     color: white;
     font-size: 36px;
     
     text-decoration: none;
 }
 
-.load-more {
+.load-more{
     text-align: center;
     margin-top: 30px;
 }
@@ -445,4 +448,64 @@ sup {
 
 .sort:hover .sort-content {
     display: block;
+}
+
+label:before {
+    content: "";
+    display: block;
+    height: 10px;
+    width: 10px;
+    border: 1px solid white;
+    float: left;
+}
+
+input[type="checkbox"]:checked + label:before {
+    background-color: #fff;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.filter {
+    color: #fff;
+    border-right: 1px solid white;
+}
+
+.filter li{
+    margin-left: 30px;
+    margin-top: 25px;
+}
+
+.filter label {
+    margin-left: 10px;
+}
+
+.filter span {
+    margin-top: 30px;
+}
+
+li.filter-header {
+    padding-top: 30px;
+    margin-top: 0px;
+}
+
+.show-more-options a {
+    text-decoration: none;
+    color: white;
+    font-size: 21px;
+
+}
+.show-more-options {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-submit {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.slide {
+    border-bottom: 1px solid white;
 }

@@ -37,10 +37,10 @@ closeBtn.addEventListener("click", closeModal)
     }
 
 
-function closeModal() {
-    modal.classList.add("hide");
-    modal.classList.remove("show");
-}
+        function closeModal() {
+        modal.classList.add("hide");
+        modal.classList.remove("show");
+        }
 
 modal.addEventListener("click", function(e) {
     if(e.target === modal) {
@@ -48,26 +48,117 @@ modal.addEventListener("click", function(e) {
     }
 })
 
-//like-clicked
+//like-clicked (several methods)
+
 let likeBtns = document.querySelectorAll(".like");
 
-likeBtns.forEach(btn => {
-    btn.onclick= function (){
-        btn.classList.toggle("like-toggle"); 
-    }
+// likeBtns.forEach((item) =>
+//   item.addEventListener("click", function (e) {
+//     e.target.style.backgroundColor = "red";
+//   })
+// );
+
+//1
+
+// likeBtns.forEach((item) =>
+// item.addEventListener("click", function() {
+//     if (item.classList.contains("liked")) {
+//         item.classList.remove("liked");
+//     } else {
+//         item.classList.add("liked")
+//     }
+// })
+// );
+
+// 2
+likeBtns.forEach((item) =>
+item.addEventListener("click", function() {
+    item.classList.toggle("liked")
 })
+);
 
-//scroll
+// 3
+// likeBtns.forEach(btn => {
+//     btn.onclick= function (){
+//         btn.classList.toggle("liked"); 
+//     }
+// })
 
-// window.addEventListener("scroll",() => {
-//     let scrolled = window.scrollY;
-//     let scrollable = document.documentElement.scrollHeight - window.innerHeight;
+// show modal by scroll
 
-//     return scrolled === scrollable ? 
-//         function openModal() {
-//             modal.classList.add("show");
-//             modal.classList.remove("hide");
-//         }
+function showModalByScroll() {
+    if (window.pageYOffset > document.body.scrollHeight/2){
+        openModal();
+        window.removeEventListener("scroll", showModalByScroll);
+    }
+}
+window.addEventListener("scroll", showModalByScroll);
+    
+//slick slider
+
+$(".slider-block").slick({
+dots: true
+});
+    
+// change product quantity 
+
+// let decrementBtns = document.querySelectorAll(".decrement-button");
+// let incrementBtns = document.querySelectorAll(".increment-button");
+let quantityInputs = document.querySelectorAll(".products-quantity input");
+
+// function addMoreProducts(inc, dec, input) { 
+//     let currentCount = +input.value;
+//     currentCount +=1
+//     quantityInputs.value = currentCount;
+//     if (currentCount >= 5) {
+//        inc.disabled = true;
+//     } else {
+//         dec.disabled = false; 
 //     }
 // }
-// )
+
+// function addLessProducts(inc, dec, input) {
+//     let currentCount = +input.value;
+//     currentCount -=1
+//     quantityInputs.value = currentCount;
+//     if (currentCount <= 1) {
+//         dec.disabled = true;
+//     } else {
+//         inc.disabled = false;
+//     }
+// }
+
+// incrementBtns.addEventListener("click", addMoreProducts);
+// decrementBtns.addEventListener("click", addLessProducts);
+
+
+
+quantityInputs.forEach(function(productsQuantity){
+    let inc = productsQuantity.nextElementSibling,
+        dec = productsQuantity.previousElementSibling;
+
+    inc.addEventListener("click", function() {
+        let currentCount = +productsQuantity.value;
+        currentCount +=1
+        productsQuantity.value = currentCount;
+        if (currentCount >= 5) {
+            inc.disabled = true;
+        } else {
+            dec.disabled = false; 
+        }
+    })
+    dec.addEventListener("click", function() {
+        let currentCount = +productsQuantity.value;
+    currentCount -=1
+    productsQuantity.value = currentCount;
+    if (currentCount <= 1) {
+        dec.disabled = true;
+    } else {
+        inc.disabled = false;
+    }
+    })
+
+})
+
+
+

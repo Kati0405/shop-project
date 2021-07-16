@@ -546,8 +546,42 @@ li.filter-header {
     display: block;
 }
 
-.like-toggle {
+.liked {
     background-image: url(images/like-white.png);
     background-color: #2c71b8;
     cursor: pointer;
+}
+
+.slider-block > div {
+    padding: 150px 0;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
+
+.slick-prev:before, .slick-next:before {
+color: white;
+font-size: 60px;
+opacity: 1;
+}
+
+.slick-prev:before {
+    content: '❬';
+}
+
+.slick-next:before {
+    content: '❭';
+}
+
+.slick-dots li.slick-active button:before {
+    color: white;
+    content: '◼';
+    opacity: 1;
+}
+
+.slick-dots li button:before {
+    color: white;
+    content: '◻';
+    font-size: 16px;
+    opacity: 1;
 }

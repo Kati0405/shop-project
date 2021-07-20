@@ -560,9 +560,9 @@ li.filter-header {
 }
 
 .slick-prev:before, .slick-next:before {
-color: white;
-font-size: 60px;
-opacity: 1;
+    color: white;
+    font-size: 60px;
+    opacity: 1;
 }
 
 .slick-prev:before {
@@ -584,4 +584,37 @@ opacity: 1;
     content: '◻';
     font-size: 16px;
     opacity: 1;
+}
+
+.decrement-button, .increment-button {
+    background: #2c71b8;
+    border: 1px solid white;
+    cursor: pointer;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.products-quantity input[type=text] {
+    height: 20px;
+    width: 160px;
+    
+}
+
+.products-quantity input[type=text] {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+.products-quantity input[type=text]:focus-visible {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+.decrement-button:disabled, .increment-button:disabled {
+    background: #69a0d6;
 }

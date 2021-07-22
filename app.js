@@ -104,7 +104,7 @@ dots: true
 
 // let decrementBtns = document.querySelectorAll(".decrement-button");
 // let incrementBtns = document.querySelectorAll(".increment-button");
-let quantityInputs = document.querySelectorAll(".products-quantity input");
+// let quantityInputs = document.querySelectorAll(".products-quantity input");
 
 // function addMoreProducts(inc, dec, input) { 
 //     let currentCount = +input.value;
@@ -133,32 +133,129 @@ let quantityInputs = document.querySelectorAll(".products-quantity input");
 
 
 
-quantityInputs.forEach(function(productsQuantity){
-    let inc = productsQuantity.nextElementSibling,
-        dec = productsQuantity.previousElementSibling;
+// quantityInputs.forEach(function(productsQuantity){
+//     let inc = productsQuantity.nextElementSibling,
+//         dec = productsQuantity.previousElementSibling;
 
-    inc.addEventListener("click", function() {
-        let currentCount = +productsQuantity.value;
-        currentCount +=1
-        productsQuantity.value = currentCount;
-        if (currentCount >= 5) {
-            inc.disabled = true;
-        } else {
-            dec.disabled = false; 
-        }
-    })
-    dec.addEventListener("click", function() {
-        let currentCount = +productsQuantity.value;
-    currentCount -=1
-    productsQuantity.value = currentCount;
-    if (currentCount <= 1) {
-        dec.disabled = true;
-    } else {
-        inc.disabled = false;
-    }
-    })
+//     inc.addEventListener("click", function() {
+//         let currentCount = +productsQuantity.value;
+//         currentCount +=1
+//         productsQuantity.value = currentCount;
+//         if (currentCount >= 5) {
+//             inc.disabled = true;
+//         } else {
+//             dec.disabled = false; 
+//         }
+//     })
+//     dec.addEventListener("click", function() {
+//         let currentCount = +productsQuantity.value;
+//     currentCount -=1
+//     productsQuantity.value = currentCount;
+//     if (currentCount <= 1) {
+//         dec.disabled = true;
+//     } else {
+//         inc.disabled = false;
+//     }
+//     })
 
-})
+//     function toggleButtonsState(count) {
+//   decrementBtns.disabled = count <= 1;
+//   incrementBtns.disabled = count >= 5;
+// }
+// incrementBtns.addEventListener("click", function () {
+//   let currentCount = +quantityInputs.value;
+//   let nextCount = currentCount + 1;
+//   quantityInputs.value = nextCount;
+//   toggleButtonsState(nextCount);
+// });
+// decrementBtns.addEventListener("click", function () {
+//   let currentCount = +quantityInputs.value;
+//   let nextCount = currentCount - 1;
+//   quantityInputs.value = nextCount;
+//   toggleButtonsState(nextCount);
+// });
+
+// })
+
+// let decrementBtns = document.querySelectorAll(".decrement-button")[0];
+// let incrementBtns = document.querySelectorAll(".increment-button")[0];
+// let quantityInputs = document.querySelectorAll(".products-quantity input")[0];
+// let currentCount = +quantityInputs.value;
+
+// function toggleButtonsState(count) {
+//   decrementBtns.disabled = count <= 1;
+//   incrementBtns.disabled = count >= 5;
+// }
+// toggleButtonsState(currentCount);
+
+// incrementBtns.addEventListener("click", function () {
+//     let currentCount = +quantityInputs.value;
+//     let nextCount = currentCount + 1;
+//     quantityInputs.value = nextCount;
+//     toggleButtonsState(nextCount);
+//   });
+//   decrementBtns.addEventListener("click", function () {
+//     let currentCount = +quantityInputs.value;
+//     let nextCount = currentCount - 1;
+//     quantityInputs.value = nextCount;
+//     toggleButtonsState(nextCount);
+//   });
 
 
+  let decrementBtns = document.querySelectorAll(".decrement-button");
+  let incrementBtns = document.querySelectorAll(".increment-button");
+  let quantityInputs = document.querySelectorAll(".products-quantity input");
+
+function Counter(incrementBtn, decrementBtn, inputField) {
+    this.domRefs = {
+        incrementBtn,
+        decrementBtn,
+        inputField
+    };
+
+this.toggleButtonsState = function () {
+    let count = this.domRefs.inputField.value;
+    this.domRefs.decrementBtn.disabled = count <= 1;
+    this.domRefs.incrementBtn.disabled = count >= 5;
+  };
+
+  this.toggleButtonsState();
+
+  this.increment = function () {
+
+    let currentCount = +this.domRefs.inputField.value;
+    let nextCount = currentCount + 1;
+    this.domRefs.inputField.value = nextCount;
+    this.toggleButtonsState(nextCount);
+  };
+
+  this.decrement = function () {
+    let currentCount = +this.domRefs.inputField.value;
+    let nextCount = currentCount - 1;
+    this.domRefs.inputField.value = nextCount;
+    this.toggleButtonsState(nextCount);
+};
+
+this.domRefs.incrementBtn.addEventListener(
+    "click", 
+    this.increment.bind(this)
+    );
+
+this.domRefs.decrementBtn.addEventListener(
+    "click", 
+    this.decrement.bind(this)
+    );
+}
+
+// let counter = new Counter(incrementBtns, decrementBtns, quantityInputs);
+// console.log(counter);
+
+
+
+
+let counter = [];
+
+quantityInputs.forEach((quantity, i) => {
+    counter[i] = new Counter(incrementBtns[i], decrementBtns[i], quantity)
+});
 
